@@ -1,0 +1,2 @@
+Async Oriented
+Not Contanerized
