@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fortune-app
+  labels:
+    app: fortune-app
+spec:
+  containers:
+    - name: fortune-app
+      image: "us-central1-docker.pkg.dev/qwiklabs-resources/spl-lab-apps/fortune-app:1.0.0"
+      ports:
+        - name: http
+          containerPort: 8080
+      resources:
+        limits:
+          cpu: 0.2
+          memory: "20Mi"

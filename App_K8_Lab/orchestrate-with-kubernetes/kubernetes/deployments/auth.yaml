@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth
+spec:
+  selector:
+    matchLabels:
+      app: auth
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: auth
+    spec:
+      containers:
+        - name: auth
+          image: "us-central1-docker.pkg.dev/qwiklabs-resources/spl-lab-apps/auth-service:1.0.0"
+          ports:
+            - name: http
+              containerPort: 8080

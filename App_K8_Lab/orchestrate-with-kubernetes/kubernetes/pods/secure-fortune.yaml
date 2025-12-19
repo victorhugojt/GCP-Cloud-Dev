@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "secure-fortune"
+  labels:
+    app: fortune-app
+spec:
+  containers:
+    - name: fortune-app
+      image: "us-central1-docker.pkg.dev/qwiklabs-resources/spl-lab-apps/fortune-app:1.0.0"
+      ports:
+        - name: http
+          containerPort: 8080
+    - name: nginx
+      image: "nginx:1.27.0"
+      ports:
+        - name: https
+          containerPort: 443
+      volumeMounts:
+        - name: "tls-certs"
+          mountPath: "/etc/nginx/certs"
+          readOnly: true
+        - name: "nginx-proxy-conf"
+          mountPath: "/etc/nginx/conf.d/default.conf"
+          subPath: "proxy.conf"
+          readOnly: true
+  volumes:
+    - name: "tls-certs"
+      secret:
+        secretName: "tls-certs"
+    - name: "nginx-proxy-conf"
+      configMap:
+        name: "nginx-proxy-conf"
