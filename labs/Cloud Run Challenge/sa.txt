@@ -1,0 +1,7 @@
+Service Account: Billing service account
+
+Display Name: Billing Service Cloud Run
+
+Service Name: billing-service
+
+Role :N/A

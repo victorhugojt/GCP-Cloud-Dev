@@ -1,0 +1,11 @@
+Image Name: billing-prod-api:0.1
+
+Service Name: Billing production service
+
+Repository: gcr.io
+
+Authentication: authenticated
+
+Code: pet-theory/lab07/prod-api-billing
+
+Service Account: Billing service account

@@ -1,0 +1,7 @@
+Service Account: Frontend service account
+
+Display Name: Billing Service Cloud Run Invoker
+
+Service Name: frontend-prod-service
+
+Role: run.invoker
